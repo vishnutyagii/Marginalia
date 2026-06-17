@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Marginalia</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="mg-header">
+    <div class="mg-wordmark">Marginalia</div>
+    <div class="mg-tagline">Highlight &amp; Note</div>
+  </header>
+
+  <div class="mg-search-wrap">
+    <input id="mg-search" type="text" placeholder="Search highlights and notes…" autocomplete="off" />
+  </div>
+
+  <main id="mg-content" class="mg-content">
+    <!-- sections injected by popup.js -->
+  </main>
+
+  <footer class="mg-footer">
+    <span id="mg-count">0 highlights</span>
+    <button id="mg-clear-all" class="mg-link-btn">Clear all</button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

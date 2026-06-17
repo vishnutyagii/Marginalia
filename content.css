@@ -1,0 +1,130 @@
+/* content.css — injected into every page. Namespaced under .mg- to avoid collisions. */
+
+.mg-hl {
+  border-radius: 2px;
+  padding: 0.05em 0;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.mg-hl:hover { filter: brightness(0.93); }
+.mg-hl[data-mg-color="yellow"] { background: #FFD966; }
+.mg-hl[data-mg-color="mint"]   { background: #8FD9A8; }
+.mg-hl[data-mg-color="pink"]   { background: #FF9EC4; }
+.mg-hl[data-mg-color="sky"]    { background: #8EC5FC; }
+
+.mg-hl.mg-flash {
+  animation: mg-flash-anim 1.1s ease;
+}
+@keyframes mg-flash-anim {
+  0%   { box-shadow: 0 0 0 0 rgba(43, 69, 112, 0.6); }
+  40%  { box-shadow: 0 0 0 6px rgba(43, 69, 112, 0.25); }
+  100% { box-shadow: 0 0 0 0 rgba(43, 69, 112, 0); }
+}
+
+/* floating toolbar shown on text selection */
+.mg-toolbar {
+  position: fixed;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  background: #23304E;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  animation: mg-pop 0.12s ease-out;
+}
+@keyframes mg-pop {
+  from { opacity: 0; transform: translateY(4px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.mg-toolbar button.mg-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  padding: 0;
+}
+.mg-toolbar button.mg-dot:hover { border-color: #fff; transform: scale(1.08); }
+.mg-toolbar button.mg-dot[data-mg-color="yellow"] { background: #FFD966; }
+.mg-toolbar button.mg-dot[data-mg-color="mint"]   { background: #8FD9A8; }
+.mg-toolbar button.mg-dot[data-mg-color="pink"]   { background: #FF9EC4; }
+.mg-toolbar button.mg-dot[data-mg-color="sky"]    { background: #8EC5FC; }
+
+/* note popover, opened after highlighting or by clicking an existing highlight */
+.mg-popover {
+  position: fixed;
+  z-index: 2147483647;
+  width: 240px;
+  background: #FAF8F3;
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #23304E;
+  overflow: hidden;
+  animation: mg-pop 0.12s ease-out;
+}
+.mg-popover-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px 6px;
+}
+.mg-popover-label {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6B6458;
+  font-weight: 600;
+}
+.mg-popover-colors { display: flex; gap: 5px; }
+.mg-popover-colors button {
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,0.12); cursor: pointer; padding: 0;
+}
+.mg-popover-colors button[data-mg-color="yellow"] { background: #FFD966; }
+.mg-popover-colors button[data-mg-color="mint"]   { background: #8FD9A8; }
+.mg-popover-colors button[data-mg-color="pink"]   { background: #FF9EC4; }
+.mg-popover-colors button[data-mg-color="sky"]    { background: #8EC5FC; }
+.mg-popover-colors button.mg-active { border-color: #23304E; border-width: 2px; }
+
+.mg-popover textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  resize: none;
+  padding: 0 10px;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  background: transparent;
+  min-height: 50px;
+  outline: none;
+  color: #23304E;
+}
+.mg-popover textarea::placeholder { color: #B5AFA0; }
+
+.mg-popover-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px 10px;
+}
+.mg-popover-actions button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.mg-btn-delete { color: #B5483C; }
+.mg-btn-delete:hover { background: rgba(181, 72, 60, 0.1); }
+.mg-btn-save { color: #fff; background: #2B4570; font-weight: 600; }
+.mg-btn-save:hover { background: #23304E; }
